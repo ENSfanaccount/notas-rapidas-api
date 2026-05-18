@@ -21,24 +21,24 @@
     <div class="navbar-nav ms-auto d-flex align-items-center gap-2">
         @auth
             @if(auth()->user()->rol === 'admin')
-                <a class="nav-link text-white" href="{{ route('admin.dashboard') }}">Dashboard</a>
-                <a class="nav-link text-white" href="{{ route('admin.tickets.index') }}">Tickets</a>
-                <a class="nav-link text-white" href="{{ route('admin.usuarios.index') }}">Usuarios</a>
+                <a class="nav-link text-black" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                <a class="nav-link text-black" href="{{ route('admin.tickets.index') }}">Tickets</a>
+                <a class="nav-link text-black" href="{{ route('admin.usuarios.index') }}">Usuarios</a>
             @endif
 
             @if(auth()->user()->rol === 'gerente')
-                <a class="nav-link text-white" href="{{ route('gerente.dashboard') }}">Dashboard</a>
-                <a class="nav-link text-white" href="{{ route('gerente.reportes') }}">Reportes</a>
-                <a class="nav-link text-white" href="{{ route('gerente.tickets.index') }}">Tickets</a>
+                <a class="nav-link text-black" href="{{ route('gerente.dashboard') }}">Dashboard</a>
+                <a class="nav-link text-black" href="{{ route('gerente.reportes') }}">Reportes</a>
+                <a class="nav-link text-black" href="{{ route('gerente.tickets.index') }}">Tickets</a>
             @endif
 
             @if(auth()->user()->rol === 'usuario')
-                <a class="nav-link text-white" href="{{ route('usuario.dashboard') }}">Mi Panel</a>
-                <a class="nav-link text-white" href="{{ route('usuario.tickets.index') }}">Mis Tickets</a>
-                <a class="nav-link text-white" href="{{ route('usuario.tickets.create') }}">Nuevo Ticket</a>
+                <a class="nav-link text-black" href="{{ route('usuario.dashboard') }}">Mi Panel</a>
+                <a class="nav-link text-black" href="{{ route('usuario.tickets.index') }}">Mis Tickets</a>
+                <a class="nav-link text-black" href="{{ route('usuario.tickets.create') }}">Nuevo Ticket</a>
             @endif
 
-            <span class="text-white">
+            <span class="text-black">
                 {{ auth()->user()->name }}
                 <span class="badge bg-secondary ms-1">{{ auth()->user()->rol }}</span>
             </span>
@@ -71,5 +71,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-```
-

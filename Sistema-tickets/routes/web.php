@@ -39,6 +39,11 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/usuarios/{user}', [AdminController::class, 'eliminarUsuario'])->name('usuarios.destroy');
         });
 
+    // ── CERRAR TICKET (admin o gerente) ───────────────────────────────
+    Route::middleware(['rol:admin,gerente'])
+        ->patch('/tickets/{ticket}/close', [TicketWebController::class, 'close'])
+        ->name('tickets.close');
+
     // ── RUTAS GERENTE ─────────────────────────────────────────────────
     Route::middleware(['rol:admin,gerente'])
         ->prefix('gerente')
