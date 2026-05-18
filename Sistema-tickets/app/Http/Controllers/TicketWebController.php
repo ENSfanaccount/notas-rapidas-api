@@ -47,4 +47,24 @@ class TicketWebController extends Controller
  return redirect()->route('tickets.index')
  ->with('success', 'Ticket eliminado.');
  }
+
+  // PATCH /tickets/{ticket}/close
+  public function close(Ticket $ticket)
+  {
+      $estadosPermitidos = ['en_curso', 'pendiente'];
+
+      if (!in_array($ticket->status, $estadosPermitidos)) {
+          return redirect()->route('admin.tickets.index')
+              ->with('error', 'Solo se pueden cerrar tickets en estado "En curso" o "Pendiente".');
+      }
+
+      $ticket->update([
+          'status'           => 'finalizada',
+          'fecha_resolucion' => now(),
+      ]);
+
+      return redirect()->route('admin.tickets.index')
+          ->with('success', 'Ticket cerrado exitosamente.');
+  }
+
 }
